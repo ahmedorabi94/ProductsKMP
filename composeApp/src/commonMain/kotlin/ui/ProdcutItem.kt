@@ -44,7 +44,7 @@ fun ProductItem(product: Product) {
                     text = product.title,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
-                    fontSize = MaterialTheme.typography.h1.fontSize,
+                    fontSize = MaterialTheme.typography.h6.fontSize,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
@@ -62,7 +62,7 @@ fun ProductItem(product: Product) {
 
                     // chip
                     Text(
-                        text = "$product.price",
+                        text = "${product.price}",
                         fontWeight = FontWeight.Medium,
                         fontSize = MaterialTheme.typography.body2.fontSize,
 

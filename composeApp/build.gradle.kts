@@ -5,27 +5,33 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    kotlin("plugin.serialization") version "1.8.10"
 }
 
 kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
 
     jvm("desktop")
+   // ios()
+
 
     listOf(
-        iosX64(),
-        iosArm64(),
+       //iosX64(),
+     //   iosArm64(),
+      //  ios(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
-            isStatic = true
+        //    isStatic = true
+            binaryOption("bundleId", "org.orabi.prodcuts.ComposeApp")
+            linkerOpts  += "-ld64"
         }
     }
 
@@ -68,12 +74,13 @@ kotlin {
 
             api("io.github.qdsfdhvh:image-loader:1.7.3")
             // optional - Moko Resources Decoder
-            api("io.github.qdsfdhvh:image-loader-extension-moko-resources:1.7.3")
+         //   api("io.github.qdsfdhvh:image-loader-extension-moko-resources:1.7.3")
             // optional - Blur Interceptor (only support bitmap)
-            api("io.github.qdsfdhvh:image-loader-extension-blur:1.7.3")
+          //  api("io.github.qdsfdhvh:image-loader-extension-blur:1.7.3")
 
             implementation("media.kamel:kamel-image:0.9.1")
-
+            implementation("co.touchlab:kermit:2.0.2")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -114,8 +121,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)

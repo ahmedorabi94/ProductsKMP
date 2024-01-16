@@ -44,7 +44,7 @@ fun ProductsListScreen() {
                 verticalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 items(
-                    items = (uiState.value as ProductsListState.Success).date.items,
+                    items = (uiState.value as ProductsListState.Success).date,
                     key = { it.id }
                 ) {
                     ProductItem(it)
