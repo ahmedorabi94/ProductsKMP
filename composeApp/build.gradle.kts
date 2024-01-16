@@ -15,9 +15,9 @@ kotlin {
             }
         }
     }
-    
+
     jvm("desktop")
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,10 +28,10 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
@@ -62,6 +62,18 @@ kotlin {
             //implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
             implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.4")
             implementation("io.ktor:ktor-client-content-negotiation:2.2.4")
+
+            //  implementation("io.coil-kt:coil:2.5.0")
+            //  implementation("io.coil-kt:coil-compose:3.0.0-alpha02")
+
+            api("io.github.qdsfdhvh:image-loader:1.7.3")
+            // optional - Moko Resources Decoder
+            api("io.github.qdsfdhvh:image-loader-extension-moko-resources:1.7.3")
+            // optional - Blur Interceptor (only support bitmap)
+            api("io.github.qdsfdhvh:image-loader-extension-blur:1.7.3")
+
+            implementation("media.kamel:kamel-image:0.9.1")
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
