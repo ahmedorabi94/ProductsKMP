@@ -20,8 +20,3 @@ data class Product(
     @SerialName("title")
     val title: String
 )
-
-//@Serializable
-//data class Products(
-//    val items : List<Product>
-//)

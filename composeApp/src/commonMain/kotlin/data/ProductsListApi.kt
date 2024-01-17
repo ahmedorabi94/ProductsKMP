@@ -27,23 +27,19 @@ class ProductsListApi {
     fun getProductsList(limit: Int): Flow<ProductsListState> {
         return flow {
             emit(ProductsListState.Loading)
-            Logger.e {"Loading "}
+            Logger.e { "Loading " }
             delay(2000)
             try {
-
-
-//              val items = httpClient.get(urlString = "https://fakestoreapi.com/products?limit=10").body<List<Product>>()
-//                Logger.e {"items $items"}
-
                 emit(
                     ProductsListState.Success(
-                        date = httpClient.get(urlString = "https://fakestoreapi.com/products?limit=10").body()
+                        date = httpClient.get(urlString = "https://fakestoreapi.com/products?limit=10")
+                            .body()
 
                     )
                 )
 
             } catch (e: Exception) {
-                Logger.e {"Error ${e.message}"}
+                Logger.e { "Error ${e.message}" }
                 emit(ProductsListState.Error(e.message ?: "unknown error"))
             }
         }
