@@ -16,7 +16,6 @@ class ProductsListApi {
     private val httpClient = HttpClient {
         install(ContentNegotiation) {
             json(Json {
-                explicitNulls = false
                 prettyPrint = true
                 isLenient = true
                 ignoreUnknownKeys = true
@@ -24,11 +23,11 @@ class ProductsListApi {
         }
     }
 
-    fun getProductsList(limit: Int): Flow<ProductsListState> {
+    fun getProductsList(): Flow<ProductsListState> {
         return flow {
             emit(ProductsListState.Loading)
             Logger.e { "Loading " }
-            delay(2000)
+         //   delay(2000)
             try {
                 emit(
                     ProductsListState.Success(

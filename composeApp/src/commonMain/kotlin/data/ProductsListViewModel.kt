@@ -15,7 +15,7 @@ class ProductsListViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            productsListApi.getProductsList(10).collectLatest {
+            productsListApi.getProductsList().collectLatest {
                 _uiState.value = it
             }
 

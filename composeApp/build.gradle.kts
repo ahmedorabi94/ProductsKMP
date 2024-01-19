@@ -41,9 +41,12 @@ kotlin {
 
             implementation(libs.androidx.appcompat)
 
-            implementation("io.ktor:ktor-client-okhttp:2.2.4")
+            implementation("io.ktor:ktor-client-okhttp:2.3.7")
             implementation("io.ktor:ktor-client-android:2.2.4")
             implementation("io.ktor:ktor-client-logging:2.2.4")
+
+            implementation(libs.koin.android)
+
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -58,9 +61,9 @@ kotlin {
             implementation("dev.icerock.moko:mvvm-compose:0.16.1")
             implementation("dev.icerock.moko:mvvm-flow:0.16.1")
             implementation("dev.icerock.moko:mvvm-flow-compose:0.16.1")
-            implementation("org.jetbrains.kotlinx:atomicfu:0.17.3")
+            implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
 
-            implementation("io.ktor:ktor-client-core:2.2.4")
+            implementation("io.ktor:ktor-client-core:2.3.7")
             implementation("io.ktor:ktor-client-serialization:2.2.4")
             implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.4")
             implementation("io.ktor:ktor-client-content-negotiation:2.2.4")
@@ -70,16 +73,39 @@ kotlin {
 
             implementation("media.kamel:kamel-image:0.9.1")
             implementation("co.touchlab:kermit:2.0.2")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+
+            val voyagerVersion = "1.0.0"
+
+            // Multiplatform
+
+            // Navigator
+            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+
+            // Screen Model
+            implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
+
+            // BottomSheetNavigator
+            implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyagerVersion")
+
+            // TabNavigator
+            implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+
+            // Transitions
+            implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.4")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.7.3")
             implementation("io.ktor:ktor-client-cio:2.2.4")
         }
 
         iosMain.dependencies {
-            implementation("io.ktor:ktor-client-darwin:2.2.4")
+            implementation("io.ktor:ktor-client-darwin:2.3.7")
             implementation("io.ktor:ktor-client-ios:2.2.4")
         }
     }

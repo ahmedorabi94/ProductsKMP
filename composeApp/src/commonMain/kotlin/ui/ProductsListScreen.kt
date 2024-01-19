@@ -16,58 +16,71 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import data.ProductsListState
 import data.ProductsListViewModel
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
 
 
-@Composable
-fun ProductsListScreen() {
+class ProductsListScreen : Screen {
 
-    val viewModel: ProductsListViewModel =
-        getViewModel(Unit, viewModelFactory { ProductsListViewModel() })
+    @Composable
+    override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
 
-    val uiState = viewModel.uiState.collectAsState()
+        val viewModel: ProductsListViewModel =
+            getViewModel(Unit, viewModelFactory { ProductsListViewModel() })
 
-    when (uiState.value) {
-        is ProductsListState.Error -> {
-            Box(
-                modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "Error Message",
-                    textAlign = TextAlign.Center
-                )
-            }
-        }
+        val uiState = viewModel.uiState.collectAsState()
 
-        ProductsListState.Idle -> {
-
-        }
-
-        ProductsListState.Loading -> {
-            Box(
-                modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator()
-            }
-        }
-
-        is ProductsListState.Success -> {
-
-            LazyColumn(
-                modifier = Modifier.background(MaterialTheme.colors.surface)
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(20.dp)
-            ) {
-                items(
-                    items = (uiState.value as ProductsListState.Success).date,
-                    key = { it.id }
+        when (uiState.value) {
+            is ProductsListState.Error -> {
+                Box(
+                    modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface),
+                    contentAlignment = Alignment.Center
                 ) {
-                    ProductItem(it)
+                    Text(
+                        text = "Error Message",
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+
+            ProductsListState.Idle -> {
+
+            }
+
+            ProductsListState.Loading -> {
+                Box(
+                    modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            }
+
+            is ProductsListState.Success -> {
+
+                LazyColumn(
+                    modifier = Modifier.background(MaterialTheme.colors.surface)
+                        .padding(horizontal = 20.dp),
+                    verticalArrangement = Arrangement.spacedBy(20.dp)
+                ) {
+                    items(
+                        items = (uiState.value as ProductsListState.Success).date,
+                        key = { it.id }
+                    ) {
+                        ProductItem(it, onItemClick = { selectedProduct ->
+                            // Handle item click
+                            // You can navigate to a detail screen, show a dialog, etc.
+                           // Navigator(ProductsDetailsScreen(selectedProduct.title))
+                               navigator.push(ProductsDetailsScreen(selectedProduct))
+                        })
+                    }
                 }
             }
         }

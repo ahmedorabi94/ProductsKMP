@@ -1,6 +1,7 @@
 package ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,17 +22,17 @@ import data.Product
 
 
 @Composable
-fun ProductItem(product: Product) {
+fun ProductItem(product: Product, onItemClick: (Product) -> Unit) {
 
     Surface(
+
         color = MaterialTheme.colors.background,
         shape = RoundedCornerShape(size = 12.dp)
     ) {
 
-
-        Column {
-            /// image
-
+        Column(
+            modifier = Modifier.clickable { onItemClick(product) },
+        ) {
             val painter = rememberImagePainter(product.image)
             Image(
                 painter = painter,
@@ -62,7 +63,14 @@ fun ProductItem(product: Product) {
 
                     // chip
                     Text(
-                        text = "${product.price}",
+                        text = product.category,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = MaterialTheme.typography.body2.fontSize,
+
+                        )
+
+                    Text(
+                        text = "$${product.price}",
                         fontWeight = FontWeight.Medium,
                         fontSize = MaterialTheme.typography.body2.fontSize,
 
