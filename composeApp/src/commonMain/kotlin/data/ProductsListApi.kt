@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.Json
 
-class ProductsListApi {
+class ProductsListApi : ProductsList{
 
     private val httpClient = HttpClient {
         install(ContentNegotiation) {
@@ -23,7 +23,7 @@ class ProductsListApi {
         }
     }
 
-    fun getProductsList(): Flow<ProductsListState> {
+    override fun getProductsList(): Flow<ProductsListState> {
         return flow {
             emit(ProductsListState.Loading)
             Logger.e { "Loading " }
@@ -33,7 +33,6 @@ class ProductsListApi {
                     ProductsListState.Success(
                         date = httpClient.get(urlString = "https://fakestoreapi.com/products?limit=10")
                             .body()
-
                     )
                 )
 

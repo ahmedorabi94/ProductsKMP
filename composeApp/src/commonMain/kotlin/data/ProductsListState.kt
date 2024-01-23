@@ -1,5 +1,7 @@
 package data
 
+import data.model.Product
+
 sealed class ProductsListState {
     data object Idle : ProductsListState()
     data object Loading : ProductsListState()
