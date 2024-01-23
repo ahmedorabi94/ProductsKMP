@@ -1,3 +1,5 @@
+# Products App
+
 This is a Kotlin Multiplatform project targeting Android, iOS, Desktop.
 
 * `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
@@ -19,4 +21,14 @@ Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-mu
   <img src="https://github.com/ahmedorabi94/ProductsKMP/assets/7644709/26d4d9f5-9539-45c3-9c4e-f89a1d21bde7" width="250px" />  
  <img src="https://github.com/ahmedorabi94/ProductsKMP/assets/7644709/b22302ce-44d3-4ece-9c86-2d1062035d81" width="250px" />  
 </div>
+
+ ## Built With 🛠
+ - Compose Multiplatform
+ - Moko Shared View Model
+ - Ktor
+ - Koin
+ - Voyager multiplatform navigation library
+
+# In progress
+
 
