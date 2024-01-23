@@ -16,11 +16,11 @@ class ProductsListViewModel : ViewModel() , KoinComponent {
     private val _uiState = MutableStateFlow<ProductsListState>(ProductsListState.Idle)
     val uiState = _uiState.asStateFlow()
 
-    //   private val productsListApi = ProductsListApi()
+       private val productsListApi = ProductsListApi()
 
     //  val myService = koinInject<ProductsListApi>()
 
-      private val productsListApi : ProductsListApi by inject()
+     // private val productsListApi : ProductsListApi by inject()
 
     init {
         viewModelScope.launch {
