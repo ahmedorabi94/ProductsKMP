@@ -1,8 +1,9 @@
 package data
 
 import kotlinx.coroutines.flow.Flow
+import ui.list_screen.ProductsListState
 
-interface ProductsList {
+interface ProductsListService {
 
     fun getProductsList(): Flow<ProductsListState>
 

@@ -3,35 +3,31 @@ package data
 import co.touchlab.kermit.Logger
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
-import io.ktor.serialization.kotlinx.json.json
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.serialization.json.Json
+import ui.list_screen.ProductsListState
 
-class ProductsListApi : ProductsList{
+class ProductsListServiceImpl(private val httpClient: HttpClient) : ProductsListService{
 
-    private val httpClient = HttpClient {
-        install(ContentNegotiation) {
-            json(Json {
-                prettyPrint = true
-                isLenient = true
-                ignoreUnknownKeys = true
-            })
-        }
-    }
+//    private val httpClient = HttpClient {
+//        install(ContentNegotiation) {
+//            json(Json {
+//                prettyPrint = true
+//                isLenient = true
+//                ignoreUnknownKeys = true
+//            })
+//        }
+//    }
 
     override fun getProductsList(): Flow<ProductsListState> {
         return flow {
             emit(ProductsListState.Loading)
             Logger.e { "Loading " }
-         //   delay(2000)
             try {
                 emit(
                     ProductsListState.Success(
-                        date = httpClient.get(urlString = "https://fakestoreapi.com/products?limit=10")
+                        date = httpClient.get(urlString = "https://fakestoreapi.com/products")
                             .body()
                     )
                 )

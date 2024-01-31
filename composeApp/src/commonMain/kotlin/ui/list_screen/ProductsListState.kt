@@ -1,4 +1,4 @@
-package data
+package ui.list_screen
 
 import data.model.Product
 

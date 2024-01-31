@@ -41,11 +41,16 @@ kotlin {
 
             implementation(libs.androidx.appcompat)
 
-            implementation("io.ktor:ktor-client-okhttp:2.3.7")
-            implementation("io.ktor:ktor-client-android:2.2.4")
-            implementation("io.ktor:ktor-client-logging:2.2.4")
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.ktor.client.android)
+            implementation(libs.ktor.client.logging)
 
             implementation(libs.koin.android)
+
+            api(libs.coil3.gif)
+            api(libs.coil3.svg)
+            api(libs.coil3.core)
+            api(libs.coil3.video)
 
         }
         commonMain.dependencies {
@@ -56,43 +61,45 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-            implementation("dev.icerock.moko:mvvm-core:0.16.1")
-            implementation("dev.icerock.moko:mvvm-compose:0.16.1")
-            implementation("dev.icerock.moko:mvvm-flow:0.16.1")
-            implementation("dev.icerock.moko:mvvm-flow-compose:0.16.1")
-            implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
+          //  implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+            implementation(libs.mvvm.core)
+            implementation(libs.moko.mvvm.compose)
+            implementation(libs.moko.mvvm.flow)
+            implementation(libs.moko.mvvm.flow.compose)
+        //    implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
 
-            implementation("io.ktor:ktor-client-core:2.3.7")
-            implementation("io.ktor:ktor-client-serialization:2.2.4")
-            implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.4")
-            implementation("io.ktor:ktor-client-content-negotiation:2.2.4")
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.client.content.negotiation)
 
+            api(libs.coil3)
+            api(libs.coil3.network)
 
-            api("io.github.qdsfdhvh:image-loader:1.7.3")
+            api(libs.image.loader)
 
-            implementation("media.kamel:kamel-image:0.9.1")
-            implementation("co.touchlab:kermit:2.0.2")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+          //  implementation("media.kamel:kamel-image:0.9.1")
+            implementation(libs.kermit)
+            implementation(libs.kotlinx.serialization.json)
 
-            val voyagerVersion = "1.0.0"
+          //  val voyagerVersion = "1.0.0"
 
             // Multiplatform
 
             // Navigator
-            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+            implementation(libs.voyager.navigator)
 
             // Screen Model
-            implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
+            implementation(libs.voyager.screenmodel)
 
             // BottomSheetNavigator
-            implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyagerVersion")
+            implementation(libs.voyager.bottom.sheet.navigator)
 
             // TabNavigator
-            implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+            implementation(libs.voyager.tab.navigator)
 
             // Transitions
-            implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+            implementation(libs.voyager.transitions)
 
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
@@ -100,13 +107,13 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.7.3")
-            implementation("io.ktor:ktor-client-cio:2.2.4")
+            implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.ktor.client.cio)
         }
 
         iosMain.dependencies {
-            implementation("io.ktor:ktor-client-darwin:2.3.7")
-            implementation("io.ktor:ktor-client-ios:2.2.4")
+            implementation(libs.ktor.client.darwin)
+            implementation(libs.ktor.client.ios)
         }
     }
 }

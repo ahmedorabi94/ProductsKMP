@@ -13,12 +13,28 @@ androidx-test-junit = "1.1.5"
 compose = "1.5.4"
 compose-compiler = "1.5.6"
 compose-plugin = "1.5.11"
+imageLoader = "1.7.3"
 junit = "4.13.2"
+kermit = "2.0.2"
 kotlin = "1.9.21"
 koin = "3.5.3"
 koin-compose = "1.1.2"
+coil3-io = "3.0.0-alpha01"
+kotlinxCoroutinesSwing = "1.7.3"
+kotlinxSerializationJson = "1.6.2"
+ktorClientLogging = "2.2.4"
+ktorClientAndroid = "2.2.4"
+ktorClientOkhttp = "2.3.7"
+mvvmCompose = "0.16.1"
+mvvmCore = "0.16.1"
+mvvmFlow = "0.16.1"
+mvvmFlowCompose = "0.16.1"
+voyagerVersion = "1.0.0"
+
 
 [libraries]
+image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoader" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -38,6 +54,34 @@ compose-material = { module = "androidx.compose.material:material", version.ref 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose"}
+
+coil3 = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil3-io" }
+coil3-network = { module = "io.coil-kt.coil3:coil-network", version.ref = "coil3-io" }
+coil3-video = { module = "io.coil-kt.coil3:coil-video", version.ref = "coil3-io" }
+coil3-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coil3-io" }
+coil3-gif = { module = "io.coil-kt.coil3:coil-gif", version.ref = "coil3-io" }
+coil3-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil3-io" }
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinxCoroutinesSwing" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktorClientLogging" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientLogging" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientOkhttp" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorClientOkhttp" }
+ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktorClientLogging" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClientLogging" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroid" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientOkhttp" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorClientLogging" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorClientLogging" }
+moko-mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mvvmFlow" }
+moko-mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mvvmCompose" }
+moko-mvvm-flow-compose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mvvmFlowCompose" }
+mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "mvvmCore" }
+voyager-bottom-sheet-navigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyagerVersion" }
+voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyagerVersion" }
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerVersion" }
+voyager-tab-navigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyagerVersion" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyagerVersion" }
 
 
 [plugins]
