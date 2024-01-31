@@ -15,8 +15,5 @@ fun App() {
             Navigator(ProductsListScreen())
         }
     }
-//    MaterialTheme {
-//        Navigator(ProductsListScreen())
-//    }
 
 }

@@ -35,10 +35,6 @@ class ProductsListScreen : Screen {
         val viewModel: ProductsListViewModel =
             getViewModel(Unit, viewModelFactory { ProductsListViewModel() })
 
-
-    //   val  viewModel: ProductsListViewModel = koinInject()
-
-
         val uiState = viewModel.uiState.collectAsState()
 
         when (uiState.value) {
@@ -60,7 +56,8 @@ class ProductsListScreen : Screen {
 
             ProductsListState.Loading -> {
                 Box(
-                    modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface).fillMaxHeight(),
+                    modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface)
+                        .fillMaxHeight(),
                     contentAlignment = Alignment.Center
                 ) {
                     CircularProgressIndicator()
@@ -79,10 +76,7 @@ class ProductsListScreen : Screen {
                         key = { it.id }
                     ) {
                         ProductItem(it, onItemClick = { selectedProduct ->
-                            // Handle item click
-                            // You can navigate to a detail screen, show a dialog, etc.
-                           // Navigator(ProductsDetailsScreen(selectedProduct.title))
-                               navigator.push(ProductsDetailsScreen(selectedProduct))
+                            navigator.push(ProductsDetailsScreen(selectedProduct))
                         })
                     }
                 }

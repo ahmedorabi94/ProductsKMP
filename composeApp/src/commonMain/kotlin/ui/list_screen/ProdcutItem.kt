@@ -3,30 +3,21 @@ package ui.list_screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
-import coil3.compose.rememberAsyncImagePainter
 import com.seiko.imageloader.rememberImagePainter
 import data.model.Product
 
@@ -53,25 +44,7 @@ fun ProductItem(product: Product, onItemClick: (Product) -> Unit) {
                 modifier = Modifier.fillMaxSize().height(300.dp),
                 contentScale = ContentScale.Fit,
 
-
                 )
-
-
-//            Image(
-//                rememberCustomImagePainter(image),
-//                null,
-//                contentScale = ContentScale.Crop,
-//                modifier = Modifier.fillMaxSize()
-//            )
-
-//            rememberAsyncImagePainter (
-//                model = product.image
-//            )
-
-//            AsyncImage(
-//                product.image, "test sss",
-//                modifier = Modifier.fillMaxSize().size(55.dp)
-//            )
 
             Column(modifier = Modifier.padding(all = 8.dp)) {
                 Text(
@@ -98,34 +71,6 @@ fun ProductItem(product: Product, onItemClick: (Product) -> Unit) {
 
                 )
 
-//                Text(
-//                    modifier = Modifier.padding(bottom = 10.dp),
-//                    text = product.description,
-//                    maxLines = 3,
-//                    overflow = TextOverflow.Ellipsis
-//                )
-//                Row(
-//                    modifier = Modifier.fillMaxWidth()
-//                        .padding(top = 12.dp),
-//                    horizontalArrangement = Arrangement.SpaceBetween,
-//                    verticalAlignment = Alignment.CenterVertically
-//                ) {
-//
-//                    // chip
-//                    Text(
-//                        text = product.category,
-//                        fontWeight = FontWeight.Medium,
-//                        fontSize = MaterialTheme.typography.body2.fontSize,
-//
-//                        )
-//
-//                    Text(
-//                        text = "$${product.price}",
-//                        fontWeight = FontWeight.Medium,
-//                        fontSize = MaterialTheme.typography.body2.fontSize,
-//
-//                        )
-//                }
             }
         }
     }

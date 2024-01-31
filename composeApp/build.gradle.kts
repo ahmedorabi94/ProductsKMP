@@ -47,10 +47,10 @@ kotlin {
 
             implementation(libs.koin.android)
 
-            api(libs.coil3.gif)
-            api(libs.coil3.svg)
-            api(libs.coil3.core)
-            api(libs.coil3.video)
+//            api(libs.coil3.gif)
+//            api(libs.coil3.svg)
+//            api(libs.coil3.core)
+//            api(libs.coil3.video)
 
         }
         commonMain.dependencies {
@@ -61,30 +61,23 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
-          //  implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
             implementation(libs.mvvm.core)
             implementation(libs.moko.mvvm.compose)
             implementation(libs.moko.mvvm.flow)
             implementation(libs.moko.mvvm.flow.compose)
-        //    implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
 
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.serialization)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.ktor.client.content.negotiation)
 
-            api(libs.coil3)
-            api(libs.coil3.network)
+          //  api(libs.coil3)
+          //  api(libs.coil3.network)
 
             api(libs.image.loader)
 
-          //  implementation("media.kamel:kamel-image:0.9.1")
             implementation(libs.kermit)
             implementation(libs.kotlinx.serialization.json)
-
-          //  val voyagerVersion = "1.0.0"
-
-            // Multiplatform
 
             // Navigator
             implementation(libs.voyager.navigator)

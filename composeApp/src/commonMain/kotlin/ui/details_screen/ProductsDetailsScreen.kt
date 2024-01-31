@@ -28,7 +28,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
-import coil3.compose.rememberAsyncImagePainter
 import com.seiko.imageloader.rememberImagePainter
 import data.model.Product
 

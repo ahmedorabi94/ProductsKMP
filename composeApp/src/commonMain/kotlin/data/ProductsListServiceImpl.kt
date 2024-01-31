@@ -10,16 +10,6 @@ import ui.list_screen.ProductsListState
 
 class ProductsListServiceImpl(private val httpClient: HttpClient) : ProductsListService{
 
-//    private val httpClient = HttpClient {
-//        install(ContentNegotiation) {
-//            json(Json {
-//                prettyPrint = true
-//                isLenient = true
-//                ignoreUnknownKeys = true
-//            })
-//        }
-//    }
-
     override fun getProductsList(): Flow<ProductsListState> {
         return flow {
             emit(ProductsListState.Loading)

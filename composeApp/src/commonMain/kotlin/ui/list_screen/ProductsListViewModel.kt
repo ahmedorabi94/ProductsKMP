@@ -9,16 +9,13 @@ import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class ProductsListViewModel : ViewModel() , KoinComponent {
+class ProductsListViewModel : ViewModel(), KoinComponent {
 
     private val _uiState = MutableStateFlow<ProductsListState>(ProductsListState.Idle)
     val uiState = _uiState.asStateFlow()
 
-    //   private val productsListApi = ProductsListApi()
 
-    //  val myService = koinInject<ProductsListApi>()
-
-     private val productsListApi : ProductsListServiceImpl by inject()
+    private val productsListApi: ProductsListServiceImpl by inject()
 
     init {
         viewModelScope.launch {
