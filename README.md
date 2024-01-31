@@ -29,6 +29,4 @@ Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-mu
  - Koin
  - Voyager multiplatform navigation library
 
-# In progress
-
 
